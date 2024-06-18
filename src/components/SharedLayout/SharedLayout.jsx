@@ -2,8 +2,9 @@ import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
 import { StyledLink, Container, Header } from "./SharedLayout.styled";
 import { Loader } from "./../Loader/Loader";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
-const SharedLayout = () => {
+const SharedLayout = ({ toggleTheme }) => {
   return (
     <Container>
       <Header>
@@ -12,6 +13,7 @@ const SharedLayout = () => {
           <StyledLink to="/catalog">Catalog</StyledLink>
           <StyledLink to="/favorites">Favorites</StyledLink>
         </nav>
+        <ThemeToggle toggleTheme={toggleTheme} />
       </Header>
       <Suspense fallback={<Loader />}>
         <Outlet />

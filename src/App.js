@@ -1,4 +1,3 @@
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 import HomePage from "./pages/HomePage/HomePage";
@@ -6,10 +5,10 @@ import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
-function App() {
+function App({ toggleTheme }) {
   return (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
+      <Route path="/" element={<SharedLayout toggleTheme={toggleTheme} />}>
         <Route index element={<HomePage />} />
         <Route path="catalog" element={<CatalogPage />} />
         <Route path="favorites" element={<FavoritesPage />} />
