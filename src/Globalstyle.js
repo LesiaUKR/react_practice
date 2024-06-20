@@ -5,17 +5,10 @@ export const GlobalStyle = createGlobalStyle`
 body {
   background-color: ${(props) => props.theme.body};
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    color: ${(props) => props.theme.title};
+  font-family: "Inter", sans-serif;
+    color: ${(props) => props.theme.textColorPrimary};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
  h1,
@@ -45,4 +38,10 @@ code {
   text-decoration:none;
       color: white;
  }
+ input,
+button,
+textarea,
+select {
+  font: inherit;
+}
 `;
