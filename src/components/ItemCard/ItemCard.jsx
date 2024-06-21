@@ -6,6 +6,8 @@ import Icon from "../Icon/Icon";
 const ItemCard = ({ advert }) => {
   const { name, price, rating, location, description, gallery } = advert;
   console.log(advert);
+  let [country, city] = location.split(", ");
+  let formattedLocation = `${city}, ${country}`;
   return (
     <div>
       <div>
@@ -18,6 +20,11 @@ const ItemCard = ({ advert }) => {
           <span>
             <Icon name="heart-default" />
           </span>
+        </div>
+        <div>
+          <Icon name="star" />
+          <p>{rating}</p>
+          <p>{formattedLocation}</p>
         </div>
         <DefaultBtn text="Show more" />
         <CategoryBadge icon="water" />
