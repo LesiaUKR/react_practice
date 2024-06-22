@@ -6,8 +6,19 @@ import Icon from "../Icon/Icon";
 const ItemCard = ({ advert }) => {
   const { name, price, rating, location, description, gallery } = advert;
   console.log(advert);
-  let [country, city] = location.split(", ");
-  let formattedLocation = `${city}, ${country}`;
+
+  let formattedLocation = "";
+  if (location) {
+    let [country, city] = location.split(", ");
+    if (country && city) {
+      formattedLocation = `${city}, ${country}`;
+    }
+  }
+
+  let formattedPrice = "";
+  if (price && !isNaN(price)) {
+    formattedPrice = `€${parseFloat(price).toFixed(2)}`;
+  }
   return (
     <div>
       <div>
@@ -16,7 +27,7 @@ const ItemCard = ({ advert }) => {
       <div>
         <div>
           <h2>{name}</h2>
-          <p>{price}</p>
+          <p>{formattedPrice}</p>
           <span>
             <Icon name="heart-default" />
           </span>
