@@ -21,14 +21,11 @@ const ItemCard = ({ advert }) => {
   const categories = [
     { icon: "adults", text: `${adults} adults` },
     { icon: "transmission", text: `${transmission}` },
+    { icon: "engine", text: `${engine}` },
+    { icon: "kitchen", text: `Kitchen` },
+    { icon: "beds", text: `${details.beds} beds` },
+    { icon: "ac", text: `AC` },
   ];
-
-  // adults,
-  // [transmission]: transmission,
-  // engine: capitalizeFirstLetter(engine),
-  // Kitchen: details.kitchen,
-  // beds: details.beds,
-  // AC: details.airConditioner,
 
   console.log(categories);
   let formattedLocation = "";
