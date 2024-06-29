@@ -7,7 +7,7 @@ export const StyledBtn = styled.button`
   border-radius: 200px;
   background: ${({ theme }) => theme.buttonColor};
 
-  color: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.buttonTextColor};
 
   font-family: "Inter", sans-serif;
   font-size: 16px;

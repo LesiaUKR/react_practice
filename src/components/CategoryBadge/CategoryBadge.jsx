@@ -6,7 +6,7 @@ const CategoryBadge = ({ icon, feature, featureQuantity }) => {
   return (
     <Fragment>
       <IconWrapper>
-        <Icon name={icon} width="20" height="20" />
+        <Icon name={icon} />
       </IconWrapper>
       <CategoryNameWrapper>
         {featureQuantity} {feature}

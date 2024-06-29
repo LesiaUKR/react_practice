@@ -4,13 +4,16 @@ import "modern-normalize";
 export const GlobalStyle = createGlobalStyle`
 body {
   background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.textColorPrimary};
   margin: 0;
   font-family: "Inter", sans-serif;
     color: ${(props) => props.theme.textColorPrimary};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+* {
+  box-sizing: border-box;
+}
  h1,
  h2,
  h3,
@@ -44,4 +47,15 @@ textarea,
 select {
   font: inherit;
 }
+button {
+  cursor: pointer;
+}
+ .reset-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  }
 `;

@@ -24,7 +24,7 @@ export const StyledLink = styled(NavLink)`
   padding: 8px 16px;
   text-decoration: none;
   color: ${(props) => props.theme.textColorPrimary};
-  font-weight: 800;
+  font-weight: 600;
   &.active {
     text-decoration: underline;
     text-underline-position: 2px;

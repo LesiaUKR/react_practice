@@ -2,6 +2,19 @@ import React from "react";
 import DefaultBtn from "../DefaultBtn/DefaultBtn";
 import CategoryBadge from "../CategoryBadge/CategoryBadge";
 import Icon from "../Icon/Icon";
+import { formattedLocation } from "../../helpers/formattedLocation";
+import { formattedPrice } from "../../helpers/formattedPrice";
+import { capitalizedFirstLetter } from "./../../helpers/capitalizedFirstLetter";
+import {
+  CardDescription,
+  CardInfo,
+  CardReviewLocationBox,
+  CardText,
+  CardTitleBox,
+  CategoryList,
+  ItemCardContainer,
+} from "./ItemCard.styled";
+import { useTheme } from "styled-components";
 
 const ItemCard = ({ advert }) => {
   const {
@@ -17,63 +30,67 @@ const ItemCard = ({ advert }) => {
     details,
     reviews,
   } = advert;
-
+  const theme = useTheme();
   const categories = [
     { icon: "adults", text: `${adults} adults` },
-    { icon: "transmission", text: `${transmission}` },
-    { icon: "engine", text: `${engine}` },
+    { icon: "transmission", text: `${capitalizedFirstLetter(transmission)}` },
+    { icon: "engine", text: `${capitalizedFirstLetter(engine)}` },
     { icon: "kitchen", text: `Kitchen` },
     { icon: "beds", text: `${details.beds} beds` },
     { icon: "ac", text: `AC` },
   ];
 
   console.log(categories);
-  let formattedLocation = "";
-  if (location) {
-    let [country, city] = location.split(", ");
-    if (country && city) {
-      formattedLocation = `${city}, ${country}`;
-    }
-  }
 
-  let formattedPrice = "";
-  if (price && !isNaN(price)) {
-    formattedPrice = `€${parseFloat(price).toFixed(2)}`;
-  }
   return (
-    <div>
-      <div>
+    <ItemCardContainer>
+      <div className="card-img-box">
         <img src={gallery[0]} alt={name} />
       </div>
-      <div>
-        <div>
-          <h2>{name}</h2>
-          <p>{formattedPrice}</p>
-          <span>
-            <Icon name="heart-default" />
-          </span>
-        </div>
-        <div>
-          <Icon name="star" />
-          <p>{rating}</p>
-          <span>({reviews.length} Reviews)</span>
-        </div>
-        <div>
-          <p>{description}</p>
-          <Icon name="location" />
-          <p>{formattedLocation}</p>
-        </div>
-        <ul>
+      <CardInfo>
+        <CardTitleBox>
+          <h2 className="card-title">{name}</h2>
+          <div className="card-price-box">
+            <p className="card-price">{formattedPrice(price)}</p>
+            <button type="button" className="reset-btn">
+              <Icon name="heart-default" />
+            </button>
+          </div>
+        </CardTitleBox>
+        <CardReviewLocationBox>
+          <div className="review-box">
+            <span className="icon-box">
+              <Icon
+                name="star"
+                stroke={theme.iconStarColor}
+                fill={theme.iconStarColor}
+              />
+            </span>
+            <button type="button" className="reset-btn review-btn">
+              <CardText>
+                {rating}({reviews.length} Reviews)
+              </CardText>
+            </button>
+          </div>
+          <div className="location-box">
+            <span className="icon-box">
+              <Icon name="location" stroke={theme.iconColorFirst} />
+            </span>
+            <CardText>{formattedLocation(location)}</CardText>
+          </div>
+        </CardReviewLocationBox>
+        <CardDescription>{description}</CardDescription>
+        <CategoryList>
           {categories.map((category) => (
-            <li key={category.icon}>
+            <li key={category.icon} className="category-item">
               <CategoryBadge icon={category.icon} feature={category.text} />
             </li>
           ))}
-        </ul>
+        </CategoryList>
 
-        <DefaultBtn text="Show more" />
-      </div>
-    </div>
+        <DefaultBtn text="Show more" className="show-more-btn" />
+      </CardInfo>
+    </ItemCardContainer>
   );
 };
 

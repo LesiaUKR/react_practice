@@ -7,13 +7,15 @@ import {
   ToggleSwitchLabel,
   ToggleSwitchSpan,
 } from "./ThemeToggle.styled";
+import { useTheme } from "styled-components";
 
 function ThemeToggle({ toggleTheme }) {
+  const theme = useTheme();
   const [isToggled, setIsToggled] = useState(false);
 
   const onToggle = () => {
     setIsToggled(!isToggled);
-    toggleTheme(); // Викликаємо функцію toggleTheme при зміні стану перемикача
+    toggleTheme();
   };
 
   return (
@@ -27,7 +29,7 @@ function ThemeToggle({ toggleTheme }) {
         />
         <ToggleSwitchSpan />
       </ToggleSwitchLabel>
-      <MoonSvg />
+      <MoonSvg stroke={theme.iconColorFirst} fill={theme.iconColorFirst} />
     </ThemeWrapper>
   );
 }

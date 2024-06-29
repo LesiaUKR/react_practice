@@ -3,7 +3,12 @@ import styled from "styled-components";
 export const IconWrapper = styled.span`
   fill: black;
   border-radius: 100px;
-  background: #f2f4f7;
+
+  width: 20px;
+  height: 20px;
+
+  svg {
+  }
 `;
 export const CategoryNameWrapper = styled.span`
   color: #101828;

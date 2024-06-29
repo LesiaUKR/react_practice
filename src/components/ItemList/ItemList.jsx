@@ -1,16 +1,15 @@
 import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 import data from "../../assets/adverts.json";
+import { CardList } from "./ItemList.styled";
 
 const ItemList = () => {
   return (
-    <ul>
+    <CardList>
       {data.map((item) => (
-        <li key={item._id}>
-          <ItemCard advert={item} />
-        </li>
+        <ItemCard key={item._id} advert={item} />
       ))}
-    </ul>
+    </CardList>
   );
 };
 
