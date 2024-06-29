@@ -10,18 +10,18 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
   padding: 8px 0;
   margin-bottom: 16px;
   border-bottom: 1px solid red;
   > nav {
     display: flex;
+    gap: 8px;
   }
 `;
 
 export const StyledLink = styled(NavLink)`
-  font-size: 36px;
-  padding: 8px 16px;
+  font-size: 24px;
+  padding: 8px 8px;
   text-decoration: none;
   color: ${(props) => props.theme.textColorPrimary};
   font-weight: 600;

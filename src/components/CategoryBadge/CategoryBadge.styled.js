@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const IconWrapper = styled.span`
   fill: black;
   border-radius: 100px;
-
   width: 20px;
   height: 20px;
 
