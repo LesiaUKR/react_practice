@@ -1,6 +1,5 @@
 import React from "react";
 import Icons from "../../images/icons/sprite.svg";
-import { useTheme } from "styled-components";
 
 const Icon = ({
   name,
@@ -10,13 +9,12 @@ const Icon = ({
   stroke,
   style,
 }) => {
-  const theme = useTheme();
   return (
     <svg
       width={width}
       height={height}
       fill={fill}
-      stroke={theme[stroke]}
+      stroke={stroke}
       style={style}
     >
       <use xlinkHref={`${Icons}#icon-${name}`} />

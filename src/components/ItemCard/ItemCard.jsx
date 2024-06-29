@@ -73,7 +73,7 @@ const ItemCard = ({ advert }) => {
             </button>
           </div>
           <div className="location-box">
-            <span className="icon-box">
+            <span className="icon-box location-icon">
               <Icon name="location" stroke={theme.iconColorFirst} />
             </span>
             <CardText>{formattedLocation(location)}</CardText>
