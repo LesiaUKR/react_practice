@@ -1,14 +1,18 @@
 import React from "react";
 import ItemList from "../../components/ItemList/ItemList";
 import FilterBar from "../../components/FilterBar/FilterBar";
-import { Section } from "./CatalogPage.styled";
+import { Container } from "./CatalogPage.styled";
 
 const CatalogPage = () => {
   return (
-    <Section>
-      <FilterBar />
-      <ItemList />
-    </Section>
+    <Container>
+      <section>
+        <FilterBar />
+      </section>
+      <section>
+        <ItemList />
+      </section>
+    </Container>
   );
 };
 

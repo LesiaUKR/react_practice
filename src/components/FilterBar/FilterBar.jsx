@@ -1,7 +1,12 @@
 import React from "react";
+import FiltersForm from "../FiltersForm/FiltersForm";
 
 const FilterBar = () => {
-  return <div>FilterBar</div>;
+  return (
+    <>
+      <FiltersForm />
+    </>
+  );
 };
 
 export default FilterBar;

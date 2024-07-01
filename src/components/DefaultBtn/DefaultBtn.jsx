@@ -1,9 +1,9 @@
 import React from "react";
 import { StyledBtn } from "./DefaultBtn.styled";
 
-const DefaultBtn = ({ text, className }) => {
+const DefaultBtn = ({ text, className, type }) => {
   return (
-    <StyledBtn type="button" className={className}>
+    <StyledBtn type={type} className={className}>
       {text}
     </StyledBtn>
   );

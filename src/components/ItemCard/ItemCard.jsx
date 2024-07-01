@@ -88,7 +88,7 @@ const ItemCard = ({ advert }) => {
           ))}
         </CategoryList>
 
-        <DefaultBtn text="Show more" className="show-more-btn" />
+        <DefaultBtn type="button" text="Show more" className="show-more-btn" />
       </CardInfo>
     </ItemCardContainer>
   );
