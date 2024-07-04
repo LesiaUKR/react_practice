@@ -19,10 +19,13 @@ const FiltersForm = () => {
   ];
   return (
     <Form>
-      <div>
-        <label htmlFor="location">Location </label>
-        <Icon name="location" stroke={theme.iconColorFirst} />
-        <input type="text" name="location" placeholder="Kiev, Ukraine" />
+      <div className="inputContainer">
+        <label htmlFor="location">Location</label>
+        <div className="inputLocationContainer">
+        <Icon name="location" stroke={theme.iconColorFirst} width="18" height="20"/>
+        <input className="locationInput" type="text" name="location" placeholder="Kiev, Ukraine" />
+        </div>
+        
       </div>
       <p>Filters</p>
       <div>
