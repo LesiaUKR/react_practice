@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Icon from "../Icon/Icon";
 import { useTheme } from "styled-components";
 import DefaultBtn from "../DefaultBtn/DefaultBtn";
-import { Form } from "./FiltersForm.styled";
+import {
+  Form,
+  VehicleFilters,
+} from "./FiltersForm.styled";
 const FiltersForm = () => {
+  const [isInputFocused, setIsInputFocused] = useState(false);
   const theme = useTheme();
   const vehicleEquipmentFilters = [
     { icon: "ac", text: "AC" },
@@ -19,40 +23,66 @@ const FiltersForm = () => {
   ];
   return (
     <Form>
-      <div className="inputContainer">
-        <label htmlFor="location">Location</label>
+      <div className="locationContainer">
+        <label htmlFor="location" className="locationLabel">Location</label>
         <div className="inputLocationContainer">
-        <Icon name="location" stroke={theme.iconColorFirst} width="18" height="20"/>
-        <input className="locationInput" type="text" name="location" placeholder="Kiev, Ukraine" />
+          <Icon
+            name="location"
+            stroke={isInputFocused ? "#101828" : "rgba(16, 24, 40, 0.60)"}
+            width="18"
+            height="20"
+          />
+          <input
+            className="locationInput"
+            type="text"
+            name="location"
+            placeholder="Kiev, Ukraine"
+            onFocus={() => setIsInputFocused(true)}
+            onBlur={() => setIsInputFocused(false)}
+          />
         </div>
-        
       </div>
-      <p>Filters</p>
+      <p className="filtersTitle">Filters</p>
+      <div className="filtersContainer">
+      
       <div>
-        <h3>Vehicle equipment</h3>
-        <ul>
+        <h3 className="filtersTypeTitle">Vehicle equipment</h3>
+        <VehicleFilters>
           {vehicleEquipmentFilters.map(({ icon, text }) => (
-            <li key={text}>
-              <Icon name={icon} />
-              <label htmlFor={text}>{text}</label>
-              <input type="checkbox" name={text} />
+            <li key={text}  className="filterWrap">
+                 <Icon name={icon} width={32} height={32}  stroke={theme.iconColorFirst}/>
+              <label htmlFor={text}  className="labelText">{text}</label>
+                <input
+                  className="filterCheckbox hidden"
+                  type="checkbox"
+                  name={text}
+                />
+             
+         
+              
             </li>
           ))}
-        </ul>
+        </VehicleFilters>
       </div>
       <div>
-        <h3>Vehicle type</h3>
-        <ul>
+        <h3 className="filtersTypeTitle">Vehicle type</h3>
+        <VehicleFilters>
           {VehicleTypeFilters.map(({ icon, text }) => (
-            <li key={text}>
-              <Icon name={icon} />
-              <label htmlFor={text}>{text}</label>
-              <input type="checkbox" name={text} />
+            <li key={text} className="filterWrap">
+             
+              <Icon name={icon} width={40} height={28}  fill={theme.iconColorFirst}/>
+              <label className="labelText" htmlFor={text}>{text}</label>
+              <input
+                className="filterCheckbox hidden"
+                type="checkbox"
+                name={text}
+              />
             </li>
           ))}
-        </ul>
+        </VehicleFilters>
       </div>
-      <DefaultBtn type="submit" text="Search" />
+      </div>
+      <DefaultBtn type="submit" text="Search" className="filter-btn"/>
     </Form>
   );
 };

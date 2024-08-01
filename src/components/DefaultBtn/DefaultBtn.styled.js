@@ -5,7 +5,7 @@ export const StyledBtn = styled.button`
 
   border: none;
   border-radius: 200px;
-  background: ${({ theme }) => theme.buttonColor};
+  background-color: ${({ theme }) => theme.buttonColor};
 
   color: ${({ theme }) => theme.buttonTextColor};
 
@@ -15,4 +15,9 @@ export const StyledBtn = styled.button`
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.08px;
+  transition: background-color 0.3s ease;
+
+  &:hover{
+  background-color:${({ theme }) => theme.buttonHoverColor};
+  }
 `;
