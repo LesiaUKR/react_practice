@@ -1,24 +1,32 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import { StyledLink, Container, Header } from "./SharedLayout.styled";
+import { StyledLink, HeaderContainer, Header, LogoWrapper, NavWrapper } from "./SharedLayout.styled";
 import { Loader } from "./../Loader/Loader";
+
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
+import Logo from "../Logo/Logo";
 
 const SharedLayout = ({ toggleTheme }) => {
+
   return (
-    <Container>
+    <>
       <Header>
-        <nav>
+        <HeaderContainer>
+     <LogoWrapper>
+      <Logo />
+      </LogoWrapper>
+        <NavWrapper>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/catalog">Catalog</StyledLink>
           <StyledLink to="/favorites">Favorites</StyledLink>
-        </nav>
+        </NavWrapper>
         <ThemeToggle toggleTheme={toggleTheme} />
+        </HeaderContainer>
       </Header>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </Container>
+    </>
   );
 };
 

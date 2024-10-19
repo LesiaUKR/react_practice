@@ -5,6 +5,7 @@ import { ReactComponent as SunIcon } from "../../images/icons/sun.svg";
 export const ThemeWrapper = styled.div`
   display: flex;
   gap: 10px;
+  margin-left: auto;
 `;
 export const MoonSvg = styled(MoonIcon)`
   width: 20px;

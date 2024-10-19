@@ -1,32 +1,43 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-export const Container = styled.div`
-  margin: 0 auto;
-  padding: 0px 40px 40px;
-`;
-
 export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 0;
-  margin-bottom: 16px;
-  border-bottom: 1px solid red;
+  padding: 24px 0;
   > nav {
     display: flex;
-    gap: 8px;
+    gap: 32px;
   }
 `;
 
+export const HeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0px 64px 0px 64px;
+`;
+
+export const LogoWrapper = styled.div`
+ margin-right: 450px;
+
+ svg {
+      fill: ${({ theme }) => theme.iconLogoColorSecond};
+    }
+`;
+
+export const NavWrapper = styled.nav`
+  display: flex;
+  gap: 32px;
+`;
+
 export const StyledLink = styled(NavLink)`
-  font-size: 24px;
-  padding: 8px 8px;
-  text-decoration: none;
+
+  font-size: 16px;
   color: ${(props) => props.theme.textColorPrimary};
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 1.5;
+letter-spacing: -0.08px;
   &.active {
-    text-decoration: underline;
-    text-underline-position: 2px;
+    color: ${(props) => props.theme.buttonHoverColor};
   }
 `;

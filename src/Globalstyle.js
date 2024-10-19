@@ -2,6 +2,12 @@ import { createGlobalStyle } from "styled-components";
 import "modern-normalize";
 
 export const GlobalStyle = createGlobalStyle`
+
+:root {
+    --color1: ${({ theme }) => theme.iconLogoColorFirst};
+    --color2: ${({ theme }) => theme.iconLogoColorSecond};
+  }
+
 body {
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.textColorPrimary};
